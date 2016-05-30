@@ -100,7 +100,15 @@
 \noindent
 \textit{1) Who are you and what is your research field? Include your name, affiliation, discipline, and the background or context of your overall research that is necessary specifically to introduce your specific case study.}
 
-\noindent
+Our names are Werner Krause and Dag Tanneberg. We are
+Political Scientists from the department on ``Democracy and
+Democratization'' at the Berlin Social Science Center
+WZB, Germany. 
+
+work on
+questions of Comparative Politics, ranging from party
+competition stability and breakdown of authoritarian regimes. 
+
 \textit{2) Define what the term ``reproducibility'' means to you generally and/or in the particular context of your case study.}
 
 \section{Workflow diagram}
@@ -163,28 +171,40 @@
 
 \vspace*{1cm}
 
-\noindent
-Our workflow can be distinguished into four separate steps which can be fulfilled independently of each other. Apart from the single steps of the workflow, the colored areas document the software and tools that is used in each step. Our team consists of one student assistant, two research fellows as well ons senior research fellow. While the first is responsible for the coding and input of the data as well as some basic consistency checks, automated data tests as well as processing are maintained by our research fellows. A codebook lists the majority of coding decisions that are needed to enter the data correctly by our reseach assistant.
+\noindent Our workflow {~~can be distinguished->has~~} {--into--} four separate steps. {++Data first have to be hand coded. Second, codings go through different human supervised and automated consistency checks. Third, the newly generated data are processed before storing them in our back-end database. Finally, information can be outputted from our database. All steps ++} {--which--} can be
+fulfilled independently of each other. Apart from the single steps of the workflow, the colored areas
+document the software and tools that is used in each step. Our team
+consists of one student assistant, two research fellows as well ons
+senior research fellow. While the first is responsible for the coding
+and input of the data as well as some basic consistency checks,
+automated data tests as well as processing are maintained by our
+research fellows. A codebook lists the majority of coding decisions
+that are needed to enter the data correctly by our research assistant.
 
-In general, we are concerned with three basic challenges while collecting, coding and processing our data: reduce coding errors, maintain a high degree of intercoder reliability and provide a transparent documentation of coding decisions and data processing. The following paragraphs will specifically focus on these challenges.
+In general, we are concerned with three basic challenges
+while collecting, coding and processing our data: reduce
+coding errors, maintain a high degree of intercoder
+reliability and provide a transparent documentation of
+coding decisions and data processing. The following
+paragraphs will specifically focus on these challenges.
 
 \textbf{Part I:}
 
-As can be seen in the workflow diagram, the first decision to be made is whether a new observation needs to be added to the dataset. For that purpose we identify all upcoming elections and government formations within our country sample of 70(???) countries in the world. Once a new data entry is necessary, adequate sources have to be identified by the coder in order to ensure the correct documentation of party histories, election results and/or government events.
+{--As can be seen in the workflow diagram, t--}The first decision to be made is whether a new observation needs to be added to the dataset. For that purpose we identify all upcoming elections and government formations within our country sample of 70(???) countries in the world. Once a new data entry is necessary, adequate sources have to be identified by the coder in order to ensure the correct documentation of party histories, election results and/or government events.
 
 Evaluating the quality of the source is essential for us since only those election and government documents that provide us with information as disaggregated as possible guarantee that we can reliably and correctly code the respective data. For that purpose, a list of high quality sources is included in the codebook. If, due to lack of reliable sources, information from non-identified sources has been used, these data entries are flagged in order to identify more reliable sources in the future. Once a source has been identified, the data is coded manually following the rules of the codebook.
 
 \textbf{Part II:}
 
-Based on this the data is entered into a Microsoft Access Database and the source (including the coding decisions) is saved on a server which can be assessed by all users of the dataset. Although MS Access is not a free software, tool, it provides a) a relational database that can be easily maintained by research fellows and b) a user interface that makes the data entry clear and easily understable even for new coders. Hence, our student assistants can quickly acquire the knowledge necessary to document the data with the codebook, while the MS Access interface serves as a \textcolor{red}{coding structure} that reduces errors and facilitates a higher degree of intercoder reliability.
+Based on this the data is entered into a Microsoft Access Database and the source (including the coding decisions) is saved on a server which can be assessed by all users of the dataset. Although MS Access is not a free software, tool, it provides a) a relational database that can be easily maintained by research fellows and b) a user interface that makes the data entry clear and easily understable even for new coders. Hence, our student assistants can quickly acquire the knowledge necessary to document the data with the codebook, while the MS Access interface serves as a \textcolor{red}{{++standardized++} coding structure} that reduces error{--s--} and facilitates a high{--er--} degree of intercoder reliability.
 
 \textbf{Part III:}
 
 Moreover, the MS Access interface allows to perform basic consistency checks with the consequence that the coder can easily evaluate the reliability of the used sources and its information. As can be seen in the workflow diagram, if these checks fail, new sources have to be considered in order to reach an error-free documentation of the data.
 
-After the data entry has been finalized by the coder, the data is automatically \textcolor{red}{exported} to a PostgreSQL-Database which allows us to store the dataset and to put it under version control. On a daily basis, changes in the dataset are documented. At the same time, automated, more complex consistency checks are performed by making use of the open source statistic software R.\footnote{https://www.r-project.org/.} Based on these, pdf reports are created using the R-package \textit{knitr}\footnote{\textit{knitr} (http://yihui.name/knitr/) allows to create dynamic \LaTeX-documents with R.} and send to one of our research fellows/seniors(?). These include a documentation of all new data entries, of all data changes as well as a list of failed consistency checks. Due to this, the work of our coder is easily trackable by experienced colleagues and possible coding errors can easily detected.
+After the data entry has been finalized by the coder, the data is automatically \textcolor{red}{exported} to a PostgreSQL-Database which allows us to store the dataset and to put it under version control. {~~On a daily basis, c->C~~}hanges {~~in->to~~} the dataset are documented {++on a daily basis++}. At the same time, automated, more complex consistency checks are performed by making use of the open source statistic software R.\footnote{https://www.r-project.org/.} Based on these, pdf reports are created using the R-package \textit{knitr}\footnote{\textit{knitr} (http://yihui.name/knitr/) allows to create dynamic \LaTeX-documents with R.} and send to one of our research fellows/seniors(?). These include a documentation of all new data entries, of all data changes as well as a list of failed consistency checks. Due to this, the work of our coder {~~is->can~~} easily {~~trackable->be tracked~~} by experienced colleagues and possible coding errors {~~can->are~~} easily {~~detected->spotted~~}.
 
-Apart from performing consistency checks, the R-scripts also process the data, i.e. join different tables and drop irrelevant variables, in order to provide a raw dataset which includes basically all data entries without any additional measures. After that, manual error coding is conducted and documented if no high-quality source is available or the correct coding of the data fails for some other reasons (e.g. specific electoral systems). Based on this raw dataset, further additional calculations are conducted using R in order to provide an extended dataset that includes additional common measures in the discipline (such as the effective number of parties, the Gallagher “Least Squares Index” or the Balance of powers Index).
+Apart from performing consistency checks, the R-scripts also process the data, i.e. {++they++} join different tables and drop irrelevant variables, in order to provide a raw dataset which includes basically all data entries without any additional measures. After that, manual error coding is conducted and documented if no high-quality source is available or the correct coding of the data fails for some other reasons (e.g. specific electoral systems). Based on this raw dataset, further additional calculations are conducted using R in order to provide an extended dataset that includes additional common measures in the discipline (such as the effective number of parties, the Gallagher “Least Squares Index” or the Balance of powers Index).
 
 \textbf{Part IV:}
 
@@ -202,9 +222,9 @@ Words: 809/800
 \vspace*{1cm}
 
 \noindent
-One pain point in our procedure of data collection and processing is to manually code and document cases that do not fit our pre-defined coding scheme. That is for instance the case for our documentation of political parties and their election results. In many countries, the histories of political parties and electoral alliances do not resemble the ``well''-structured party systems of Western Europe for whom the database was originally designed. Frequently changing electoral alliances, local electoral pacts or implosions of entire party systems (as in Italy in the mid-1990s) confront us with serious difficulties in identifying and coding political parties and their electoral performance on a continuous basis. Occasionally, coding decisions are made in these cases that do not correspond to the codebook. While all codings that differ from those provided in the codebook are documented in a specified column of the dataset and is, thus, easily accessible, this information is difficult to integrate into analyses by the enduser.
+One pain point {--in our procedure of data collection and processing --}is to manually code and document cases that do not fit our pre-defined coding scheme. That is for instance the case for our documentation of political parties and their election results. In many countries, the histories of political parties and electoral alliances do not resemble the ``well''-structured party systems of Western Europe for whom the database was originally designed. Frequently changing electoral alliances, local electoral pacts or implosions of entire party systems (as in Italy in the mid-1990s) confront us with serious difficulties in identifying and coding political parties and their electoral performance on a continuous basis. Occasionally, coding decisions are made in these cases that do not correspond to the codebook. While all codings that differ from those provided in the codebook are documented in a specified column of the dataset and is, thus, easily accessible, this information is difficult to integrate into analyses by the enduser.
 
-A second pain point refers to the history of the development of the database and the corresponding inter-coder reliability. Most often, the current coder (student assistant) does only know a limited number of his or her predecessors with the consequence that there is no guarantee that specific coding decisions (which cannot be directly derived from the codebook due to their rare appearance) are made consistently across coders. Hence, we are confronted with a highly hierarchized knowledge concerning coding decisions on which we cannot be sure that they were transparently handed down to future coders. As noted by \citet[141]{krippendorf_content_2000}, ``without the establishment of reliability, content analysis measures are useless.'' For that reason, one specific task of the present is also to accurately check past codings in order to guarantee that the database includes the same information over time.
+A second pain point refers to the history of the development of the database and the corresponding inter-coder reliability. Most often, the current coder (student assistant) does only know a limited number of his or her predecessors with the consequence that there is no guarantee that specific coding decisions (which cannot be directly derived from the codebook due to their rare appearance) are made consistently across coders. Hence, we are confronted with {--a--} highly {~~hierarchized->individualized~~} knowledge concerning coding decisions on which we cannot be sure that they were transparently handed down to future coders. As noted by \citet[141]{krippendorf_content_2000}, ``without the establishment of reliability, content analysis measures are useless.'' For that reason, one specific task of the present is also to accurately check past codings in order to guarantee that the database includes the same information over time.
 
 \vspace*{1cm}
 \noindent
@@ -242,20 +262,47 @@ Words:  188/200-400
 
 \noindent
 \textit{1) Why do you think that reproducibility in your domain is important?}
+Political scientists learn from empirical experience. If
+contributions to our field are not transparent enough to be
+reproduced, then nothing can be learned from them. However, 
+reproducibility covers both data generation and analysis.
+The Garbage-In-Garbage-Out principle applies to all studies
+that fail on either side.  
 
-\noindent
 \textit{2) How or where did you learn the reproducible practices described in your case study? Mentors, classes, workshops, etc.}
 
-\noindent
+Some practices we use are common standard and should be
+taught in every introductory methods class. Others we learned
+from more tech savvy colleagues. Magic happened once we put
+the two together.
+
 \textit{3) What do you see as the major pitfalls to doing reproducible research in your domain, and do you have any suggestions for working around these? Examples could include legal, logistical, human, or technical challenges.}
 
-\noindent
+There are at least two major pitfalls. First, political
+scientists often receive strong training in qualitative or 
+quantitative methods, but basics of data management are
+rarely taught. It is not unheard of that graduate students
+merge datasets row by row in Excel. To curb such flawed practices 
+Political Science curricula must begin teaching data
+management skills. Second, our field rewards productivity,
+not thoroughness. We finish one project and then quickly
+move on, leaving procedures of data generation and analysis
+poorly documented. To ensure at least a minimal level of
+reproducibility the provision of replication packages should
+be made mandatory. 
+
 \textit{4) What do you view as the major incentives for doing reproducible research?}
 
-\noindent
+Political scientists learn from experience. Reproducible
+research hence establishes a baseline against which to
+compare future analyses. Moreover, as results become more reproducible our discipline will -- hopefully -- be less
+decried as pseudo-science in public debates. 
+
 \textit{5) Are there any broad reproducibility best practices that you'd recommend for researchers in your field?}
 
-\noindent
+Never change your raw data file, avoid the GUI, and always
+comment your code.
+
 \textit{6) Would you recommend any specific websites, training courses, or books for learning more about reproducibility?}
 
 \clearpage
