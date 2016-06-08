@@ -1055,7 +1055,7 @@ members in a standardized and easily accessible format.<br />
 Originally, the data were used to observe and analyze the<br />
 consolidation processes in Eastern and Middle European<br />
 democracies. The project has since grown into a<br />
-database that includes more than seventy countries around<br />
+database that includes more than eighty countries around<br />
 the world between 1945 and today.</p>
 <p>The database keeps track of diverse aspects of political<br />
 competition. For instance, we code lower house and<br />
@@ -1092,201 +1092,33 @@ transparent to others as the standardized output we provide<br />
 for secondary analyses.</p>
 <h1 id="workflow"><a name="user-content-workflow" href="#workflow" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Workflow</h1>
 <p><img alt="&quot;Workflow diagram of our database&quot;" src="/Users/dag/github/reproducibleResearch/md/GovElec_Workflow_May2k16.png" /></p>
-<p>Our workflow {<del>can be distinguished-&gt;has</del>} {&ndash;into&ndash;} four<br />
-separate steps. {++Data first have to be hand coded. Second,<br />
-codings go through different human supervised and automated<br />
-consistency checks. Third, the newly generated data are<br />
-processed before storing them in our back-end database.<br />
-Finally, information can be outputted from our database. All<br />
-steps ++} {&ndash;which&ndash;} can be fulfilled independently of each<br />
-other. Apart from the single steps of the workflow, the<br />
-colored areas document the software and tools that is used<br />
-in each step. Our team consists of one student assistant,<br />
-two research fellows as well ons senior research fellow.<br />
-While the first is responsible for the coding and input of<br />
-the data as well as some basic consistency checks, automated<br />
-data tests as well as processing are maintained by our<br />
-research fellows. A codebook lists the majority of coding<br />
-decisions that are needed to enter the data correctly by our<br />
-research assistant.</p>
-<p>In general, we are concerned with three basic challenges<br />
-while collecting, coding and processing our data: reduce<br />
-coding errors, maintain a high degree of intercoder<br />
-reliability and provide a transparent documentation of<br />
-coding decisions and data processing. The following<br />
-paragraphs will specifically focus on these challenges.</p>
-<p>\textbf{Part I:}</p>
-<p>{&ndash;As can be seen in the workflow diagram, t&ndash;}<br />
-The first decision to be made is whether a new observation<br />
-needs to be added to the dataset. For that purpose we<br />
-identify all upcoming elections and government formations<br />
-within our country sample of 70(???) countries in the world.<br />
-Once a new data entry is necessary, adequate sources have to<br />
-be identified by the coder in order to ensure the correct<br />
-documentation of party histories, election results and/or<br />
-government events.</p>
-<p>Evaluating the quality of the source is essential for us<br />
-since only those election and government documents that<br />
-provide us with information as disaggregated as possible<br />
-guarantee that we can reliably and correctly code the<br />
-respective data. For that purpose, a list of high quality<br />
-sources is included in the codebook. If, due to lack of<br />
-reliable sources, information from non-identified sources<br />
-has been used, these data entries are flagged in order to<br />
-identify more reliable sources in the future. Once a source<br />
-has been identified, the data is coded manually following<br />
-the rules of the codebook.</p>
-<p>\textbf{Part II:}</p>
-<p>Based on this the data is entered into a Microsoft Access<br />
-Database and the source (including the coding decisions) is<br />
-saved on a server which can be assessed by all users of the<br />
-dataset. Although MS Access is not a free software, tool, it<br />
-provides a) a relational database that can be easily<br />
-maintained by research fellows and b) a user interface that<br />
-makes the data entry clear and easily understable even for<br />
-new coders. Hence, our student assistants can quickly<br />
-acquire the knowledge necessary to document the data with<br />
-the codebook, while the MS Access interface serves as a<br />
-\textcolor{red}{{++standardized++} coding structure} that<br />
-reduces error{&ndash;s&ndash;} and facilitates a high{&ndash;er&ndash;} degree<br />
-of intercoder reliability.</p>
-<p>\textbf{Part III:}</p>
-<p>Moreover, the MS Access interface allows to perform basic<br />
-consistency checks with the consequence that the coder can<br />
-easily evaluate the reliability of the used sources and its<br />
-information. As can be seen in the workflow diagram, if<br />
-these checks fail, new sources have to be considered in<br />
-order to reach an error-free documentation of the data.</p>
-<p>After the data entry has been finalized by the coder, the<br />
-data is automatically \textcolor{red}{exported} to a<br />
-PostgreSQL-Database which allows us to store the dataset and<br />
-to put it under version control. {<del>On a daily basis,<br />
-c-&gt;C</del>}hanges {<del>in-&gt;to</del>} the dataset are documented {++on<br />
-a daily basis++}. At the same time, automated, more complex<br />
-consistency checks are performed by making use of the open<br />
-source statistic software<br />
-R.\footnote{<a href="https://www.r-project.org/">https://www.r-project.org/</a>.} Based on these, pdf<br />
-reports are created using the R-package<br />
-\textit{knitr}\footnote{\textit{knitr}<br />
-(<a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>) allows to create dynamic \LaTeX-<br />
-documents with R.} and send to one of our research<br />
-fellows/seniors(?). These include a documentation of all new<br />
-data entries, of all data changes as well as a list of<br />
-failed consistency checks. Due to this, the work of our<br />
-coder {<del>is-&gt;can</del>} easily {<del>trackable-&gt;be tracked</del>} by<br />
-experienced colleagues and possible coding errors<br />
-{<del>can-&gt;are</del>} easily {<del>detected-&gt;spotted</del>}.</p>
-<p>Apart from performing consistency checks, the R-scripts also<br />
-process the data, i.e. {++they++} join different tables and<br />
-drop irrelevant variables, in order to provide a raw dataset<br />
-which includes basically all data entries without any<br />
-additional measures. After that, manual error coding is<br />
-conducted and documented if no high-quality source is<br />
-available or the correct coding of the data fails for some<br />
-other reasons (e.g. specific electoral systems). Based on<br />
-this raw dataset, further additional calculations are<br />
-conducted using R in order to provide an extended dataset<br />
-that includes additional common measures in the discipline<br />
-(such as the effective number of parties, the Gallagher<br />
-“Least Squares Index” or the Balance of powers Index).</p>
-<p>\textbf{Part IV:}</p>
-<p>After these steps are finished, the dataset is publicly<br />
-accessible via Shiny-Interface\footnote{Shiny is a web<br />
-application framework for R. See <a href="http://shiny.rstudio.com/">http://shiny.rstudio.com/</a>.}<br />
-which allows the enduser (currently the members of our<br />
-research department) to browse and download the raw as well<br />
-as the aggregated dataset. In addition the aforementioned<br />
-codebook of the database can be downloaded in order to<br />
-guarantee a high transparency of coding decisions.</p>
+<p>Our workflow has four separate steps. Data first have to be hand coded. Second,<br />
+codings go through different human supervised and automated consistency checks. Third, the newly generated data are processed before storing them in our back-end database. Finally, information can be outputted from our database. All steps can be fulfilled independently of each other.</p>
+<p>Our team consists of one student assistant, two research fellows and one senior researcher. While the first is responsible for the coding and input of the data as well as some basic consistency checks, automated data tests and processing are maintained by our research fellows. In general, we are concerned with three basic challenges while collecting, coding and processing our data: reduce coding errors, maintain a high degree of intercoder reliability and provide transparency on the entire decision-making process. The following paragraphs will focus on these challenges.</p>
+<p>The first decision to be made is whether a new observation needs to be added to the database. For that purpose we collect information on all upcoming elections and government formations for the 82 countries covered by our database. If a new entry becomes necessary, the coder will gather information on party histories, election results and/or government events. It is crucial to critically evaluate the quality of that information. Sources must be factually correct and should offer information that is as disaggregated as possible. The goal driving both requirements is correct and reliable coding of the data. To ease the burden on the RA a list of high quality print and digital sources is included in the codebook. If reliable sources cannot be found, information from other documents will be accepted as well. Such entries are flagged, however, in order to update them should high quality sources become available in the future. For example, elections will be flagged if results are available as vote and seat shares only rather than absolute numbers. Once a source has been identified it is coded manually.</p>
+<p>Next, the research assistant enters coded data into a <em>Microsoft Access</em> Database and the source (including all coding decisions) is saved on a server accessible to all users. Although MS Access is neither free nor open, it provides a relational database that can be easily maintained and, more importantly, a user interface that makes data entry clear and easy. Hence, via forms and reports the <em>MS Access</em> interface allows for a standardized coding process that reduces error and increases intercoder reliability. Moreover, the <em>MS Access</em> interface performs basic consistency checks which enable the research assistant to evaluate the reliability of sources. One such routine verifies that the sum of absolute of votes equals the total number of valid votes as stated in the source. Another consistency check compares the total seat share of all government parties to the coded type of government. Hence, minimum-wining coalitions with less than 50 per cent of the seats in parliament are immediately identified as problematic. Should any consistency check fail, new sources have to be consulted in order to reach an almost error-free coding result.</p>
+<p>After the data has been entered, it is automatically exported to a PostgreSQL-Database which allows us to store the entire dataset and to put it under version control using <em>Git</em>. Changes to the database are documented on a daily basis. At the same time, more complex automated consistency checks are performed. These make use of the open source statistical software <a href="https://www.r-project.org/"><em>R</em></a>. Test results in portable document format are created and send to one of the junior researchers using the <em>R</em>-package <a href="http://yihui.name/knitr/"><em>knitr</em></a>. These reports document all new entries, but also all changes to the data, and all failed consistency checks. Consequently, the work of our research assistant can be easily tracked and potential coding errors are spotted almost immediately.</p>
+<p>The automated reports serve as a basis for manual classification and documentation of errors. Despite our best efforts to collect data from high quality sources only, certain inconsistencies are unavoidable. For example, sometimes we cannot identify the number of seats in parliament controlled by a coalition government. This happens occasionally when government parties competed in different electoral coalitions for which seats won by each party are not available. These and other cases are identified by automatically run <em>R</em>-scripts. Due to the wild variety of potential inconsistencies and their origins all are flagged and documented manually.</p>
+<p>Finally, the data are processed in <em>R</em>. They are joined from different tables and some variables are dropped in order to generate a raw dataset that includes all entries. Additional operations are performed on the raw data to generate an extended dataset. The latter includes common summary statistics like turnout, the effective number of parties, measurements of<br />
+disproportionality or government stability.</p>
+<p>After all these steps are finished both datasets are made accessible via a <a href="http://shiny.rstudio.com/"><em>Shiny</em></a> interface which allows the user to browse and download raw as well as the extended data. It also possible to export the entire database including all coding decisions and flags.</p>
+<p><font color="red">Words: 844/800</font></p>
 <h1 id="pain-points"><a name="user-content-pain-points" href="#pain-points" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Pain points</h1>
-<p>One pain point {&ndash;in our procedure of data collection and<br />
-processing &ndash;}is to manually code and document cases that do<br />
-not fit our pre-defined coding scheme. That is for instance<br />
-the case for our documentation of political parties and<br />
-their election results. In many countries, the histories of<br />
-political parties and electoral alliances do not resemble<br />
-the ``well&rsquo;&lsquo;-structured party systems of Western Europe for<br />
-whom the database was originally designed. Frequently<br />
-changing electoral alliances, local electoral pacts or<br />
-implosions of entire party systems (as in Italy in the mid-<br />
-1990s) confront us with serious difficulties in identifying<br />
-and coding political parties and their electoral performance<br />
-on a continuous basis. Occasionally, coding decisions are<br />
-made in these cases that do not correspond to the codebook.<br />
-While all codings that differ from those provided in the<br />
-codebook are documented in a specified column of the dataset<br />
-and is, thus, easily accessible, this information is<br />
-difficult to integrate into analyses by the enduser.</p>
-<p>A second pain point refers to the history of the development<br />
-of the database and the corresponding inter-coder<br />
-reliability. Most often, the current coder (student<br />
-assistant) does only know a limited number of his or her<br />
-predecessors with the consequence that there is no guarantee<br />
-that specific coding decisions (which cannot be directly<br />
-derived from the codebook due to their rare appearance) are<br />
-made consistently across coders. Hence, we are confronted<br />
-with {&ndash;a&ndash;} highly {<del>hierarchized-&gt;individualized</del>}<br />
-knowledge concerning coding decisions on which we cannot be<br />
-sure that they were transparently handed down to future<br />
-coders. As noted by \citet[141]{krippendorf_content_2000},<br />
-``without the establishment of reliability, content analysis<br />
-measures are useless.&rsquo;&lsquo; For that reason, one specific task<br />
-of the present is also to accurately check past codings in<br />
-order to guarantee that the database includes the same<br />
-information over time.</p>
+<p>One pain point is to manually code and document cases that do not fit our pre-defined coding scheme. That is for instance the case for our documentation of political parties and their election results. In many countries, the histories of political parties and electoral alliances do not resemble the &ldquo;well&rdquo;-structured party systems of Western Europe for whom the database was originally designed. Frequently changing electoral alliances, local electoral pacts or implosions of entire party systems (as in Italy in the mid-1990s) confront us with serious difficulties in identifying and coding political parties and their electoral performance on a continuous basis. As denoted above, these deviant cases are so multifaceted that they can hardly be captured by consistent error codings. For that reason no specific guideline is given in the codebook and every case needs to be commented by hand. The final datasets contain each of these commentaries so that also these &ldquo;coding outliers&rdquo; are made transparent to the end-user. Nevertheless, they are difficult to be integrated in the final analysis for the researcher since every single case has to be considered individually.</p>
+<p>A second pain point refers to the history of the development of the database and the corresponding inter-coder reliability. Most often, the current coder (student assistant) does only know a limited number of his or her predecessors with the consequence that there is no guarantee that specific coding decisions (which cannot be directly derived from the codebook due to their rare appearance) are made consistently across coders. Hence, we are confronted with highly individualized knowledge concerning coding decisions on which we cannot be sure that they were transparently handed down to future coders. To put this simple, in spite of the existence of a extensive codebook we can give only limited information concerning the intercoder reliability of our project. For that reason, one specific task of the present is also to accurately check past codings in order to guarantee that the database includes the same information over time.</p>
+<p><font color="red">Words: 330/200-400</font></p>
 <h1 id="key-benefits"><a name="user-content-key-benefits" href="#key-benefits" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Key benefits</h1>
-<p>One central concern of our workflow is to make our procedure<br />
-of data collection and processing transparent to the end-<br />
-user. While a number of datasets on election results,<br />
-government formations or electoral systems exists, none<br />
-provides sufficient information to retrace the process of<br />
-data coding back to the initial source. For that reason, we<br />
-provide the end-user with a codebook that lists all regular<br />
-coding decisions. If data entries do not follow these rules,<br />
-these &ldquo;irregular&rdquo; codings are commented in specific<br />
-\textcolor{red}{remark-fields} which can be assessed within<br />
-the datasets that we provide. Moreover, we give the user the<br />
-opportunity to also consider the original source used to<br />
-enter the data along with the corresponding coding decisions<br />
-which are annotated on the source document. As mentioned in<br />
-the introduction of this case study, there exist manifold<br />
-ways to collect and aggregate data on political parties,<br />
-elections and governments. Only if the researcher has<br />
-perfect control and knowledge over the dataset and the<br />
-corresponding decisions made during this process, he or she<br />
-can be sure that her or his analysis is not flawed by<br />
-irregular or unexpected coding decisions. For that reason,<br />
-we believe that our approach helps to ensure a high level of<br />
-quality in the research field of comparative politics.</p>
+<p>One central concern of our workflow is to make our procedure of data collection and processing transparent to the end-user. While a number of datasets on election results, government formations or electoral systems exists, none provides sufficient information to retrace the process of data coding back to the initial source. For that reason, we provide the end-user with a codebook that lists all regular coding decisions. As denoted above, data entries that do not follow these rules are coded and commented in a special way which can be assessed within the datasets that we provide. Moreover, we give the user the opportunity to also consider the original source we used to enter the data along with the corresponding coding decisions which are annotated on the source document. As mentioned in the introduction of this case study, there exist manifold ways to collect and aggregate data on political parties, elections and governments. Only if the researcher has perfect control and knowledge over the dataset and the corresponding decisions made during it creation, he or she can be sure that her or his analysis is not flawed by irregular or unexpected coding decisions. For that reason, we believe that our approach helps to ensure a high level of quality in the field of comparative politics.</p>
+<p><font color="red">Words: 213/200-400</font></p>
 <h1 id="key-tools"><a name="user-content-key-tools" href="#key-tools" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Key tools</h1>
-<p>The core of our workflow is certainly the<br />
-PostgreSQL-database, which allows us not only to easily<br />
-store a relational database on a<br />
-server.\footnote{<a href="https://www.postgresql.org/">https://www.postgresql.org/</a>} In contrast to<br />
-the Microsoft Access database, which we use in order to<br />
-provide an easily accessible user interface for the data<br />
-entry, PostgreSQL is a free object-relational database<br />
-management system and comes with no charge. Due to its<br />
-excellent compatibility with other important software of our<br />
-workflow, such as Microsft Access and R (and with this knitr<br />
-and Shiny), it constitutes a flexible tool that also allows<br />
-us to version control our database. Moreover it gives us the<br />
-opportunity to automatically produce periodic reports on<br />
-changes in the dataset as well as to quickly identify failed<br />
-consistency checks. This facilitates us to ensure a high<br />
-quality of the data. Apart from these automated procedures,<br />
-it enables us to access all versions of the database either<br />
-via a version control system such as \textit{git}.<br />
-Furthermore, the version control allows the enduser to<br />
-access any data version of the past so that past research<br />
-results can be easily reproduced without dealing with<br />
-updates of the datatset.</p>
+<p>The core of our workflow is certainly the PostgreSQL-database, which allows us  to easily store a relational database. In contrast to the Microsoft Access database, which we use in order to provide an easily accessible user interface for the data entry, PostgreSQL is a object-relational database management system that comes with no charge. Due to its compatibility with other important software of our workflow, such as <em>Microsft Access</em>, <em>Git</em> and <em>R</em> (and with this <em>knitr</em> and <em>Shiny</em>), it constitutes a flexible tool. Due to this, we can automatically produce periodic reports on changes in the dataset as well as  quickly identify failed consistency checks. This facilitates us to ensure a high quality of the data. Apart from these automated procedures, it enables us to access all versions of the database and the corresponding <em>R</em>-scripts via a version control system such as <em>git</em>. This allows the end-user to access any data version of the past so that past research results can be easily reproduced without dealing with updated versions of the datasets.</p>
+<p><font color="red">Words: 171/200-400</font></p>
 <h1 id="general-questions-about-reproducibility"><a name="user-content-general-questions-about-reproducibility" href="#general-questions-about-reproducibility" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>General questions about reproducibility</h1>
 <ol>
 <li><strong>Why do you think that reproducibility in your domain is important?</strong><br />
   Political scientists learn from empirical experience. If<br />
   contributions to our field are not transparent enough to be<br />
-  reproduced, then nothing can be learned from them. However, <br />
+  reproduced, then nothing can be learned from them. However,<br />
   reproducibility covers both data generation and analysis.<br />
   The Garbage-In-Garbage-Out principle applies to all studies<br />
   that fail on either side of the equation.  </li>
@@ -1297,7 +1129,7 @@ updates of the datatset.</p>
   the two together.</li>
 <li><strong>What do you see as the major pitfalls to doing reproducible research in your domain, and do you have any suggestions for working around these? Examples could include legal, logistical, human, or technical challenges.</strong><br />
   We see two major pitfalls. First, political<br />
-  scientists often receive strong training in qualitative or <br />
+  scientists often receive strong training in qualitative or<br />
   quantitative methods, but not in basic data management.<br />
   For example, it is not unheard of that graduate students<br />
   merge datasets row by row in Excel. Much would be gained<br />
@@ -1308,7 +1140,7 @@ updates of the datatset.</p>
   analysis poorly documented. To ensure at least a minimal<br />
   level of reproducibility the provision of replication<br />
   packages containing raw data, data management and analysis<br />
-  scripts should be made mandatory. </li>
+  scripts should be made mandatory.</li>
 <li><strong>What do you view as the major incentives for doing reproducible research?</strong><br />
   Political scientists learn from experience. Reproducible<br />
   research hence establishes a baseline against which to<br />
